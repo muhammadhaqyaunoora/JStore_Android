@@ -3,8 +3,15 @@ package com.example.jstore_android_haqy;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ExpandableListView.OnChildClickListener;
+import android.widget.ExpandableListView.OnGroupClickListener;
+import android.widget.ExpandableListView.OnGroupCollapseListener;
+import android.widget.ExpandableListView.OnGroupExpandListener;
+import android.widget.Toast;
+
 
 import com.android.volley.Response;
 
@@ -19,8 +26,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
-    List<String> listDataHeader;
-    HashMap<String, List<String>> listDataChild;
+    ArrayList<Supplier> listDataHeader;
+    HashMap<Supplier, List<Item>> listDataChild;
     private ArrayList<Supplier> listSupplier = new ArrayList<>();
     private ArrayList<Item> listItem = new ArrayList<>();
     private HashMap<Supplier, ArrayList<Item>> childMapping = new HashMap<>();
@@ -32,15 +39,40 @@ public class MainActivity extends AppCompatActivity {
 
         expListView = (ExpandableListView) findViewById(R.id.lvExp);
 
-        prepareListData();
+        refreshList();
 
-        listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
+        listAdapter = new MainListAdapter(MainActivity.this, listSupplier, childMapping);
 
         expListView.setAdapter(listAdapter);
-    }
 
-    private void prepareListData() {
-        
+        expListView.setOnGroupClickListener(new OnGroupClickListener() {
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+                return false;
+            }
+        });
+
+        expListView.setOnGroupExpandListener(new OnGroupExpandListener() {
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                Toast.makeText(getApplicationContext(), listDataHeader.get(groupPosition) + " Expanded", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        expListView.setOnGroupCollapseListener(new OnGroupCollapseListener() {
+            @Override
+            public void onGroupCollapse(int groupPosition) {
+                Toast.makeText(getApplicationContext(), listDataHeader.get(groupPosition) + " Collapsed", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        expListView.setOnChildClickListener(new OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                Toast.makeText(getApplicationContext(), listDataHeader.get(groupPosition) + " : " + listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition), Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
     }
 
     protected void refreshList() {

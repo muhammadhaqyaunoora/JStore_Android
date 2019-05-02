@@ -30,8 +30,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="150dp"
-        android:layout_marginRight="150dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
 
         android:text="LOGIN" />
 
@@ -39,9 +39,9 @@
         android:id="@+id/registerClickable"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
+        android:layout_marginLeft="95dp"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="150dp"
+        android:layout_marginRight="95dp"
         android:text="Register Here!"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
