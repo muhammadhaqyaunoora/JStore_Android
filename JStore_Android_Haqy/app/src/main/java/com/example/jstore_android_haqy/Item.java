@@ -5,7 +5,7 @@ public class Item {
     private String name;
     private int price;
     private String category;
-    private String status;
+    private String Status;
     private Supplier supplier;
 
     public Item(int id, String name, int price, String category, String status, Supplier supplier)
@@ -14,7 +14,7 @@ public class Item {
         this.name=name;
         this.price=price;
         this.category=category;
-        this.status=status;
+        Status=status;
         this.supplier=supplier;
     }
 
@@ -25,27 +25,27 @@ public class Item {
 
     public String getName()
     {
-        return this.name;
+        return name;
     }
 
     public int getPrice()
     {
-        return this.price;
+        return price;
     }
 
     public String getCategory()
     {
-        return this.category;
+        return category;
     }
 
     public Supplier getSupplier()
     {
-        return this.supplier;
+        return supplier;
     }
 
     public String getStatus()
     {
-        return this.status;
+        return Status;
     }
 
     public void setId(int id)
@@ -70,7 +70,7 @@ public class Item {
 
     public void setStatus(String status)
     {
-        this.status = status;
+        Status = status;
     }
 
     public void setSupplier(Supplier supplier)
