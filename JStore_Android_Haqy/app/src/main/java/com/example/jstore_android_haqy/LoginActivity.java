@@ -40,20 +40,22 @@ public class LoginActivity extends AppCompatActivity {
                             JSONObject jsonObject = new JSONObject(response);
                             if (jsonObject != null) {
                                 Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                                intent.putExtra("customer_id", jsonObject.getInt("id"));
+                                intent.putExtra("customer_name", jsonObject.getString("name"));
                                 finish();
                                 startActivity(intent);
                             }
                         } catch (JSONException e) {
-                            AlertDialog.Builder builder1 = new AlertDialog.Builder(LoginActivity.this);
-                            builder1.setMessage("Login Failed!").create().show();
+                            AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                            builder.setMessage("Login Failed!").create().show();
                         }
                     }
                 };
                 LoginRequest loginRequest = new LoginRequest(email, password, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
                 queue.add(loginRequest);
-                    }
-                });
+            }
+        });
 
         registerClickable.setOnClickListener(new View.OnClickListener() {
             @Override

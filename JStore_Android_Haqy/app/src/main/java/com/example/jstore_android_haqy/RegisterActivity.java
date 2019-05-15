@@ -20,11 +20,11 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        final EditText nameInput = (EditText) findViewById(R.id.nameInput);
-        final EditText userInput = (EditText) findViewById(R.id.userInput);
-        final EditText emailInput = (EditText) findViewById(R.id.emailInput);
-        final EditText passInput = (EditText) findViewById(R.id.passInput);
-        final Button registerButton = (Button) findViewById(R.id.registerButton);
+        final EditText nameInput = findViewById(R.id.nameInput);
+        final EditText userInput = findViewById(R.id.userInput);
+        final EditText emailInput = findViewById(R.id.emailInput);
+        final EditText passInput = findViewById(R.id.passInput);
+        final Button registerButton = findViewById(R.id.registerButton);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
