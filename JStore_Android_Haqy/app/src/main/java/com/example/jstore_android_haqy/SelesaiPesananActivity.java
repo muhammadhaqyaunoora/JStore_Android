@@ -110,7 +110,7 @@ public class SelesaiPesananActivity extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     Log.d("jsonobject", "onResponse: " + jsonObject);
-                    if (jsonObject == null || jsonObject.getString("active").equals("false")) {
+                    if (jsonObject == null || jsonObject.getString("isActive").equals("false")) {
                         btnCancel.setEnabled(false);
                         btnFinish.setEnabled(false);
 
@@ -120,7 +120,7 @@ public class SelesaiPesananActivity extends AppCompatActivity {
 
                         String invoiceType = jsonObject.getString("invoiceType");
                         String invoiceStatus = jsonObject.getString("invoiceStatus");
-                        Integer totalPrice = jsonObject.getInt("totalprice");
+                        Integer totalPrice = jsonObject.getInt("totalPrice");
                         switch (invoiceStatus) {
                             case "Unpaid":
                                 String dueDate = jsonObject.getString("dueDate");

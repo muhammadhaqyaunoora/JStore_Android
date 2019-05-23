@@ -8,13 +8,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PesananBatalRequest extends StringRequest {
-    private static final String CANCEL_URL = "http://192.168.0.100:8080/canceltransaction";
+    private static final String CANCEL_URL = "http://192.168.43.229:8080/canceltransaction";
     private Map<String, String> params;
 
     public PesananBatalRequest(String id, Response.Listener<String> listener) {
         super(Method.POST, CANCEL_URL, listener, null);
         params = new HashMap<>();
-        params.put("id",id);
+        params.put("idinvoice",id);
     }
 
     protected Map<String, String> getParams() throws AuthFailureError {

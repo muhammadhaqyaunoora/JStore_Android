@@ -154,11 +154,11 @@ public class BuatPesananActivity extends AppCompatActivity {
                     }
                 };
                 if(selected.equals("Pay Now")){
-                    request = new BuatPesananRequest(String.valueOf(itemId), String.valueOf(currentUserId), "http://192.168.0.100:8080/createinvoicepaid", responseListener);
+                    request = new BuatPesananRequest(String.valueOf(itemId), String.valueOf(currentUserId), "http://192.168.43.229:8080/createinvoicepaid", responseListener);
                 }else if(selected.equals("Pay Later")){
-                    request = new BuatPesananRequest(String.valueOf(itemId), String.valueOf(currentUserId), "http://192.168.0.100:8080/createinvoiceunpaid", responseListener);
+                    request = new BuatPesananRequest(String.valueOf(itemId), String.valueOf(currentUserId), "http://192.168.43.229:8080/createinvoiceunpaid", responseListener);
                 }else if(selected.equals("Installment")){
-                    request = new BuatPesananRequest(String.valueOf(itemId), period, String.valueOf(currentUserId), "http://192.168.0.100:8080/createinvoiceinstallment", responseListener);
+                    request = new BuatPesananRequest(String.valueOf(itemId), period, String.valueOf(currentUserId), "http://192.168.43.229:8080/createinvoiceinstallment", responseListener);
                 }
                 RequestQueue queue = Volley.newRequestQueue(BuatPesananActivity.this);
                 queue.add(request);
